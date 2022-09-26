@@ -5,7 +5,7 @@ const SearchUser = () => {
     <form className="flex">
       <div className="relative w-full">
         <input
-          name="kjf"
+          name="username"
           value="erze"
           type="search"
           id="search-dropdown"
