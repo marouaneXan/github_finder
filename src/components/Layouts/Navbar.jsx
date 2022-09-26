@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "../../assets/githubLogo.png";
 import { Link,useLocation } from "react-router-dom";
-
+import SearchUser from "../user/SearchUser";
 const Navbar = () => {
     const location=useLocation()
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
             Back To Home
           </Link>
         ) : (
-          '<SearchUser/>'
+          <SearchUser/>
         )}
       </div>
     </nav>
