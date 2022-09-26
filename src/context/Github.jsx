@@ -6,7 +6,7 @@ const GithubContextProvider = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [user, setUser] = useState([]);
-  const [repos,setRepos]=useState([])
+  const [repos, setRepos] = useState([]);
   const searchUserRepo = async () => {
     setLoading(true);
 
@@ -22,12 +22,14 @@ const GithubContextProvider = ({ children }) => {
     setLoading(true);
     const res = await axios(`https://api.github.com/users/${login}`);
     setUser(res.data);
-    setLoading(false)
+    setLoading(false);
   };
 
   //get user repos
   const getUserRepos = async (login) => {
-    const res = await axios(`https://api.github.com/users/${login}/repos?limit=5`);
+    const res = await axios(
+      `https://api.github.com/users/${login}/repos?per_page=8`
+    );
     setRepos(res.data);
   };
 
@@ -41,7 +43,7 @@ const GithubContextProvider = ({ children }) => {
     user,
     getUserInfo,
     getUserRepos,
-    repos
+    repos,
   };
   return (
     <GithubContext.Provider value={values}>{children}</GithubContext.Provider>

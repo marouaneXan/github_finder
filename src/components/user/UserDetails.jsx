@@ -5,7 +5,7 @@ import Spinner from "../Layouts/Spinner";
 import { GithubContext } from "../../context/Github";
 const UserDetails = () => {
   const { login } = useParams();
-  const { repos,loading, user, getUserInfo, getUserRepos } =
+  const { repos, loading, user, getUserInfo, getUserRepos } =
     useContext(GithubContext);
   useEffect(() => {
     getUserInfo(login);
