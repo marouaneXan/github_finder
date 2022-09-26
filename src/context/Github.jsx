@@ -18,6 +18,7 @@ const GithubContextProvider = ({ children }) => {
     setUsername,
     setLoading,
     users,
+    setUsers,
     loading
   }
   return <GithubContext.Provider value={values}>{children}</GithubContext.Provider>;
