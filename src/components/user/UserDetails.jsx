@@ -1,13 +1,15 @@
 import React, { useContext, useEffect } from "react";
-// import UserRepo from "./UserRepo";
+import UserRepo from "./UserRepo";
 import { useParams } from "react-router-dom";
 import Spinner from "../Layouts/Spinner";
 import { GithubContext } from "../../context/Github";
 const UserDetails = () => {
   const { login } = useParams();
-  const { loading,user,getUserInfo } = useContext(GithubContext);
+  const { repos,loading, user, getUserInfo, getUserRepos } =
+    useContext(GithubContext);
   useEffect(() => {
     getUserInfo(login);
+    getUserRepos(login);
   }, [login]);
   return (
     <>
@@ -87,9 +89,9 @@ const UserDetails = () => {
               Repositories
             </h5>
             <div className="w-full flex flex-col items-center justify-center mx-auto space-y-3 mt-5">
-              {/* {repos.map((repo) => (
+              {repos.map((repo) => (
                 <UserRepo key={repo.id} repo={repo} />
-              ))} */}
+              ))}
             </div>
           </div>
         </section>
